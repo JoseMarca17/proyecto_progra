@@ -4,6 +4,7 @@ include('conexion.php');
 ?>
 <html>
 <title> registros </title>
+<link rel="stylesheet" href="styles_tablas.css"> 
 <body>
 <div class="ContenedorPrincipal">	
 <?php
@@ -37,7 +38,7 @@ include('conexion.php');
     ?>
 	<div class="ContenedorTabla" >
 	<form method="POST">
-	<h1>Lista de usuarios</h1>
+	<h1>Lista de Productos</h1>
 	
 	<div style="text-align:left">
 	<a href="usuarios_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>

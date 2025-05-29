@@ -36,7 +36,7 @@ include('conexion.php');
     ?>
 	<div class="ContenedorTabla" >
 	<form method="POST">
-	<h1>Lista de usuarios</h1>
+	<h1>Lista de Pagos</h1>
 	
 	<div style="text-align:left">
 	<a href="usuarios_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>
