@@ -2,6 +2,7 @@
 include('conexion.php');
 //include("barra_lateral.php");
 ?>
+<?php include 'header.html'; ?> 
 <html>
 <title> registros </title>
 <link rel="stylesheet" href="styles/styles_tablas.css"> 
