@@ -2,11 +2,12 @@
     session_start();
     include('conexion.php');
 ?>
+<?php include 'header.html'; ?> 
 <html>
     <head>
         <title>Crear cuenta</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
         <div class="FormCajaLogin">

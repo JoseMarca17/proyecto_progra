@@ -4,7 +4,7 @@ include('conexion.php');
 ?>
 <html>
 <title> registros </title>
-<link rel="stylesheet" href="styles_tablas.css"> 
+<link rel="stylesheet" href="styles/styles_tablas.css"> 
 <body>
 <div class="ContenedorPrincipal">	
 <?php

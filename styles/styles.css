@@ -12,9 +12,15 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+}
+
+.pagina-login {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: calc(100vh - 100px); 
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .FormCajaLogin {
@@ -27,21 +33,21 @@ body {
     box-sizing: border-box;
 }
 
-h1 {
+.FormCajaLogin h1 {
     color: rgb(80, 120, 220);
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.TextoCajas {
+.FormCajaLogin .TextoCajas {
     color: rgb(180, 200, 255);
     margin-bottom: 5px;
     text-align: left;
     width: 100%;
 }
 
-.CajaTexto {
+.FormCajaLogin .CajaTexto {
     background: white;
     border: none;
     border-radius: 6px;
@@ -52,7 +58,7 @@ h1 {
     box-sizing: border-box;
 }
 
-.BtnRegistrar {
+.FormCajaLogin .BtnRegistrar {
     background: rgb(70, 120, 210);
     border: none;
     border-radius: 6px;
@@ -65,11 +71,11 @@ h1 {
     margin-bottom: 10px;
 }
 
-.BtnRegistrar:hover {
+.FormCajaLogin .BtnRegistrar:hover {
     background: rgb(90, 140, 230);
 }
 
-.BtnLogin {
+.FormCajaLogin .BtnLogin {
     display: inline-block;
     background: rgb(1, 1, 1);
     color: white;
@@ -80,11 +86,11 @@ h1 {
     transition: background 0.3s ease;
 }
 
-.BtnLogin:hover {
+.FormCajaLogin .BtnLogin:hover {
     background: rgb(110, 160, 250);
 }
 
-.CheckBox1 {
+.FormCajaLogin .CheckBox1 {
     color: rgb(180, 200, 255);
     font-size: 0.9rem;
     margin-top: -10px;
