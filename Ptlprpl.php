@@ -12,7 +12,7 @@
     <title>S N A</title>
 </head>
 <body>
-  <?php include 'header.html'; ?> 
+  <?php include 'header.php'; ?> 
     <section class="hero">
   <div class="carrusel">
     <div class="slides">
