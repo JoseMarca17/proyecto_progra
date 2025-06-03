@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("conexion.php");
 ?>
 <?php include 'header.html'; ?> 
@@ -19,10 +20,10 @@ include("conexion.php");
 
             <div class="TextoCajas">• Producto</div>
             <input type="text" name="producto" class="CajaTexto" required>
-
+<!-- agregar conexion con la pag principal para heredar el nombre del producto -->
             <div class="TextoCajas">• Precio Unitario</div>
             <input type="number" step="0.01" name="precio" class="CajaTexto" required>
-
+<!-- agregar conexion con la pag principal para heredar el nombre del producto -->
             <div class="TextoCajas">• Cantidad</div>
             <input type="number" name="cantidad" class="CajaTexto" required>
 
@@ -62,3 +63,5 @@ if (isset($_POST["btncomprar"])) {
     }
 }
 ?>
+
+
