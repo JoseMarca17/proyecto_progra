@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="styles/estiloPgPrnl.css">
     <nav>
         <fieldset>
-            <img src="images/logo1.jpg" alt="" width="65" height="30">
+            <img src="images/logo.svg" alt="" width="65" height="30">
             <a href="#">NOVEDADES</a>
             <a href="#">ACCESORIOS</a>
             <a href="#">NOSOTROS</a>
@@ -27,5 +27,8 @@
             </div>
         </fieldset>
     </nav>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
     

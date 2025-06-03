@@ -1,6 +1,6 @@
 <?php
 include('conexion.php');
-//include("barra_lateral.php");
+include("header.php");
 ?>
 <html>
 <title> registros </title>
@@ -18,20 +18,35 @@ include('conexion.php');
     }
  
 if(isset($_POST['btnbuscar']))
+<<<<<<< HEAD
  {
  $buscar = $_POST['txtbuscar'];
 
  $sqlusu = mysqli_query($conn, "SELECT * FROM usuarios+ where correo = '".$buscar."'");
+=======
+{
+$buscar = $_POST['txtbuscar'];
+
+$sqlusu = mysqli_query($conn, "SELECT * FROM usuarios+ where correo = '".$buscar."'");
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
 
 }
 else
 {
     $sqlusu = mysqli_query($conn, "SELECT * FROM pago_prueba ORDER BY monto_pagado DESC LIMIT " . (($pagina - 1) * $filasmax)  . "," . $filasmax);
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
  
     $resultadoMaximo = mysqli_query($conn, "SELECT count(*) as id_pago FROM pago_prueba");
  
+<<<<<<< HEAD
     $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['id_pago'];
+=======
+   $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['num_usuarios'];
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
 	
     ?>
 	<div class="ContenedorTabla" >
@@ -54,6 +69,7 @@ else
             <th>Ubicacion entrega</th>
 			<th>Metodo de pago</th>
 			</tr>
+<<<<<<< HEAD
 <?php
 while ($mostrar = mysqli_fetch_assoc($sqlusu)) {
     echo "<tr>";
@@ -65,6 +81,29 @@ while ($mostrar = mysqli_fetch_assoc($sqlusu)) {
 }
 ?>
 
+=======
+ 
+        <?php
+ 
+      while ($mostrar = mysqli_fetch_assoc($sqlusu)) 
+		{
+			
+            echo "<tr>";
+            echo "<td>".$mostrar['monto_pagado']."</td>";
+			echo "<td>".$mostrar['fecha_pago']."</td>";
+			echo "<td>".$mostrar['ubicacion_entrega']."</td>";
+			echo "<td>".$mostrar['metodo_pago']."</td>";
+    
+            echo  "<td style='width:24%'>
+			 <a class='BotonesUsuarios' href=\"usuarios_ver.php?correo=$mostrar[correo]&pag=$pagina\">Ver</a> 
+			<a class='BotonesUsuarios' href=\"usuarios_modificar.php?correo=$mostrar[correo]&pag=$pagina\">Modificar</a> 
+	 <a class='BotonesUsuarios' href=\"usuarios_eliminar.php?correo=$mostrar[correo]&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar a $mostrar[nombre]?')\">Eliminar</a>
+	</td>";  
+			
+        }
+ 
+        ?>
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
     </table>
 	</div>
 	<div style='text-align:right'>
@@ -88,11 +127,16 @@ else
 ?>
 <a class="BotonesUsuarios" href="#" style="pointer-events: none">Anterior</a>
 <?php
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
 ?>
  
  <?php
 } 
+<<<<<<< HEAD
  else 
  {
 ?>
@@ -117,6 +161,32 @@ else
 <a class="BotonesUsuarios" href="usuarios_tabla.php?pag=2">Siguiente</a>
 <?php
   }
+=======
+else 
+{
+?>
+<a class="BotonesUsuarios" href="#" style="pointer-events: none">Anterior</a>
+<?php
+}
+ 
+if (isset($_GET['pag'])) {
+if ((($pagina) * $filasmax) < $maxusutabla) {
+?>
+<a class="BotonesUsuarios" href="usuarios_tabla.php?pag=<?php echo $_GET['pag'] + 1; ?>">Siguiente</a>
+<?php
+} else {
+?>
+<a class="BotonesUsuarios" href="#" style="pointer-events: none">Siguiente</a>
+<?php
+}
+?>
+<?php
+} else {
+?>
+<a class="BotonesUsuarios" href="usuarios_tabla.php?pag=2">Siguiente</a>
+<?php
+ }
+>>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
 ?>
 </div>
 </div>
