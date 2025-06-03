@@ -21,6 +21,7 @@ $compra = mysqli_fetch_assoc($resultado);
 <html>
 <head>
     <title>Detalle de Compra</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <h1>Detalle de la Compra</h1>

@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error al actualizar: " . mysqli_error($conn);
     }
 } else {
-    // Obtener datos para mostrar en formulario
     $sql = "SELECT * FROM compra_prueba WHERE id = $id LIMIT 1";
     $resultado = mysqli_query($conn, $sql);
 
@@ -41,35 +40,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $compra = mysqli_fetch_assoc($resultado);
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Modificar Compra</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <h1>Modificar Compra</h1>
     <form method="POST" action="">
         <label>Producto:</label><br>
         <input type="text" name="producto" value="<?php echo htmlspecialchars($compra['producto']); ?>" required><br><br>
-
         <label>Precio:</label><br>
         <input type="number" step="0.01" name="precio" value="<?php echo htmlspecialchars($compra['precio']); ?>" required><br><br>
-
         <label>Cantidad:</label><br>
         <input type="number" name="cantidad" value="<?php echo htmlspecialchars($compra['cantidad']); ?>" required><br><br>
-
         <label>Talla:</label><br>
         <input type="text" name="talla" value="<?php echo htmlspecialchars($compra['talla']); ?>" required><br><br>
-
         <label>Total:</label><br>
         <input type="number" step="0.01" name="total" value="<?php echo htmlspecialchars($compra['total']); ?>" required><br><br>
-
         <label>Fecha de Compra:</label><br>
         <input type="datetime-local" name="fecha_compra" value="<?php 
             echo date('Y-m-d\TH:i', strtotime($compra['fecha_compra']));
         ?>" required><br><br>
-
         <button type="submit">Guardar Cambios</button>
     </form>
     <br>

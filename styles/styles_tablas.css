@@ -1,7 +1,13 @@
 /* Estilos generales */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
+    background-color: rgb(10, 25, 70);
+    background-image:
+        radial-gradient(circle at 83% 22%, rgb(20, 30, 80) 0%, transparent 50%),
+        radial-gradient(circle at 0% 50%, rgb(50, 90, 180) 10%, transparent 50%),
+        radial-gradient(circle at 21% 21%, rgb(10, 40, 120) 0%, transparent 50%),
+        radial-gradient(circle at 54% 77%, rgb(30, 60, 150) 0%, transparent 50%),
+        radial-gradient(circle at 30% 75%, rgb(15, 45, 110) 0%, transparent 40%);
     margin: 0;
     padding: 0;
     color: #333;
@@ -11,9 +17,9 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #11195d9a;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(112, 14, 232, 0.295);
 }
 
 .ContenedorTabla {
@@ -95,20 +101,20 @@ table tr:hover {
 
 /* Estilo para el botón de eliminar (rojo) */
 .BotonesUsuarios[href*="eliminar"] {
-    background-color: #e74c3c;
+    background-color: #c76aef;
 }
 
 .BotonesUsuarios[href*="eliminar"]:hover {
-    background-color: #c0392b;
+    background-color: #c1493c;
 }
 
 /* Estilo para el botón de modificar (verde) */
 .BotonesUsuarios[href*="modificar"] {
-    background-color: #2ecc71;
+    background-color: -#1f0dc5b8;
 }
 
 .BotonesUsuarios[href*="modificar"]:hover {
-    background-color: #27ae60;
+    background-color: #1f1fb566;
 }
 
 /* Estilo para el botón de ver (morado) */
