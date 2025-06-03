@@ -1,26 +1,25 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estiloPgPrnl.css"">
+    <link rel="stylesheet" href="styles/estiloPgPrnl.css"">
     <title>S N A</title>
 </head>
 <body>
-    <nav>
-        <fieldset>
-            <img src="img/logo1.jpg" alt="" width="65" height="30">
-            <a href="#">Productos</a>
-            <a href="#">ofertas</a>
-            <a href="#">nuevo</a>
-            <div class="busqueda">
-                <form action="/buscar" method="get">
-                    <input type="search" name="q" placeholder="Buscar">
-                    <button type="submit">🔍</button>  
-            </div>
-            <a href="">INICIAR SESION</a>
-        </fieldset>
-    </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiloPgPrnl.css">
+    <title>S N A</title>
+</head>
+<body>
+   <?php
+   include "header.html";
+   ?>
     <section class="hero">
   <div class="carrusel">
     <div class="slides">
