@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+<?php session_start();?>
+>>>>>>> dc3cde4b2e2ff70a162391ad4a6e920ddcad12f0
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles/estiloPgPrnl.css">
     <title>S N A</title>
 </head>
@@ -14,6 +19,30 @@
       <img src="images/car1.jpg" alt="foto1 ">
       <img src="img/foto2.jpg" alt="foto2">
       <img src="img/foto3.jpg" alt="foto3">
+=======
+    <link rel="stylesheet" href="styles/estiloPgPrnl.css"">
+    <title>S N A</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiloPgPrnl.css">
+    <title>S N A</title>
+</head>
+<body>
+   <?php
+   include "header.html";
+   ?>
+    <section class="hero">
+  <div class="carrusel">
+    <div class="slides">
+      <img src="img/foto1.jpg" alt="foto">
+      <img src="img/foto2.jpg" alt="foto 2">
+      <img src="img/foto3.jpg" alt="foto 3">
+>>>>>>> dc3cde4b2e2ff70a162391ad4a6e920ddcad12f0
     </div>
   </div>
   
