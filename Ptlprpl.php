@@ -3,30 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="styles/estiloPgPrnl.css">
     <title>S N A</title>
 </head>
 <body>
-    <nav>
-        <fieldset>
-            <img src="img/logo1.jpg" alt="" width="65" height="30">
-            <a href="#">Productos</a>
-            <a href="#">ofertas</a>
-            <a href="#">nuevo</a>
-            <div class="busqueda">
-                <form action="/buscar" method="get">
-                    <input type="search" name="q" placeholder="Buscar">
-                    <button type="submit">🔍</button>  
-            </div>
-            <a href="">INICIAR SESION</a>
-        </fieldset>
-    </nav>
+  <?php include 'header.html'; ?> 
     <section class="hero">
   <div class="carrusel">
     <div class="slides">
-      <img src="img/foto1.jpg" alt="foto">
-      <img src="img/foto2.jpg" alt="foto 2">
-      <img src="img/foto3.jpg" alt="foto 3">
+      <img src="images/car1.jpg" alt="foto1 ">
+      <img src="img/foto2.jpg" alt="foto2">
+      <img src="img/foto3.jpg" alt="foto3">
     </div>
   </div>
   

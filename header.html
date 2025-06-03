@@ -1,16 +1,17 @@
 <link rel="stylesheet" href="styles/styles_header.css">
 <header>
-    <div>
-        <div class="barra">
-            <div class="logo"><img src="images/logo.svg" alt="Logo de la empresa"></div>
-            <div class="navegar">PRODUCTOS</div>
-            <div class="navegar">NOVEDADES</div>
-            <div class="navegar">CATEGORIAS</div>
+    <nav>
+        <fieldset>
+            <img src="images/logo1.jpg" alt="" width="65" height="30">
+            <a href="#">Productos</a>
+            <a href="#">ofertas</a>
+            <a href="#">nuevo</a>
             <div class="busqueda">
-                <input type="text" name="txttelefono" class="CajaTexto">
+                <form action="/buscar" method="get">
+                    <input type="search" name="q" placeholder="Buscar">
+                    <button type="submit">🔍</button>  
             </div>
-            <div class="navegar">CUENTA</div>
-            <div class="navegar">CARRITO</div>
-        </div>
-    </div>
+            <a href="">INICIAR SESION</a>
+        </fieldset>
+    </nav>
 </header>

@@ -2,7 +2,6 @@
     session_start();
     include('conexion.php');
 ?>
-<?php include 'header.html'; ?> 
 <html>
     <head>
         <title>Crear cuenta</title>
