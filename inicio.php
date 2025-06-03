@@ -1,13 +1,20 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Inicio | Sistema de Gestión</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/styles.css"> 
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <?php include 'header.html'; ?> 
+    <nav>
+        <fieldset>
+            <?php
+            include("header.php"); 
+            ?> 
+        </fieldset>
+    </nav>
     <main>
         <div class="FormCajaLogin">
             <h1 style="text-align: center;">Sistema de Gestión</h1>

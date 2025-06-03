@@ -1,6 +1,5 @@
 
 <link rel="stylesheet" href="styles/estiloPgPrnl.css">
-<header>
     <nav>
         <fieldset>
             <img src="images/logo1.jpg" alt="" width="65" height="30">
@@ -13,7 +12,6 @@
                     <button type="submit">🔍</button>
                 </form>
             </div>
-<<<<<<< HEAD
             <a href="#">ADM</a>
             <div class="usuario-menu">
                 <?php if (isset($_SESSION['usuario'])): ?>
@@ -29,13 +27,5 @@
             </div>
         </fieldset>
     </nav>
-=======
-            <div class="navegar">CUENTA</div>
-            <div class="navegar">CARRITO</div>
-            <div class="navegar" onclick="window.location.href='carrito.php'">CARRITO</div>
 
-
-        </div>
-    </div>
->>>>>>> 68282ab5b397aa2f71f372098f4e4956b178e692
-</header>
+    
