@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-<<<<<<< HEAD
     <nav>
         <fieldset>
             <?php
@@ -16,9 +15,6 @@
             ?> 
         </fieldset>
     </nav>
-=======
-    <?php include 'header.php'; ?> 
->>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
     <main>
         <div class="FormCajaLogin">
             <h1 style="text-align: center;">Sistema de Gestión</h1>

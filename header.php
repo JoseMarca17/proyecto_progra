@@ -27,8 +27,4 @@
             </div>
         </fieldset>
     </nav>
-<<<<<<< HEAD
-
-=======
->>>>>>> ac610585deb8f95fd3e6d08113dde3a5baa866e9
     
