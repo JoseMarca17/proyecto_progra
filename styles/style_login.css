@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('images/fondo_login.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.FormCajaLogin {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  overflow: hidden;
+  max-width: 850px;
+  width: 100%;
+}
+
+.FormCajaLogin img {
+  width: 350px;
+  object-fit: cover;
+}
+
+.FormLogin {
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.FormLogin h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+}
+
+.TextoCajas {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+.CajaTexto {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.CheckBox1 {
+  margin-bottom: 15px;
+}
+
+.BtnLogin, .BtnRegistrar {
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.BtnLogin:hover, .BtnRegistrar:hover {
+  background-color: #2980b9;
+}
