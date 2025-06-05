@@ -17,7 +17,7 @@ include("header.php")
       <img src="images/logocae2.png" alt="foto">
       <img src="images/logocar1.png" alt="foto 2">
       <img src="images/logocar3.png" alt="foto 3">
-      <img src="images/logocae2.png" alt="foto">
+      <img src="images/logocae2.png" alt="foto">  
       <img src="images/logocar1.png" alt="foto 2">
       <img src="images/logocar3.png" alt="foto 3">
       <img src="images/logocae2.png" alt="foto">
