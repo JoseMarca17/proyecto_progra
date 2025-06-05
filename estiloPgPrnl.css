@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 @media (max-width: 768px) {
   nav fieldset {
     flex-direction: column;
@@ -19,7 +18,6 @@
     margin: auto;
   }
 }
->>>>>>> dc3cde4b2e2ff70a162391ad4a6e920ddcad12f0
 
 * {
   margin: 0;
@@ -29,11 +27,8 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-<<<<<<< HEAD
   background-color: #ffffff;
-=======
   background-color: #fffaeb;
->>>>>>> dc3cde4b2e2ff70a162391ad4a6e920ddcad12f0
   color: #000000;
 }
 
@@ -41,21 +36,15 @@ nav a {
   text-decoration: none;
   color: #000000; /* color normal */
   padding: 15px 15px;
-<<<<<<< HEAD
   transition: color 0.3s ease, background-color 0.3s ease;
-=======
   transition: color 0.3s ease, background-color 0.9s ease;
->>>>>>> dc3cde4b2e2ff70a162391ad4a6e920ddcad12f0
   font-weight: 700;
   margin: 0 20px;
 }
 
 nav a:hover {
-<<<<<<< HEAD
   color: #111; 
-=======
   color: #111; /* color al pasar el mouse */
->>>>>>> dc3cde4b2e2ff70a162391ad4a6e920ddcad12f0
   background-color: #e7901d; /* fondo al pasar el mouse */
   border-radius: 5px;
   font-size: bold ;
@@ -110,7 +99,7 @@ nav img {
 .hero {
   background: url('img/banner.jpg') center/cover no-repeat;
   text-align: center;
-  padding: 80px 20px;
+  padding: 150px 100px;
   color: rgb(255, 255, 255);
   background: #c23c13;
   background: linear-gradient(132deg,rgb(120, 134, 56) 0%, rgb(64, 123, 190) 46%, rgba(0, 212, 255, 1) 100%);
@@ -296,20 +285,21 @@ nav img {
 
 .carrusel {
   overflow: hidden;
-  height: 300px;
+  height: 150px;
   position: relative;
 }
 
 .slides {
   display: flex;
-  width: 300%;
-  animation: deslizar 60s infinite;
+  width: 100%;
+  animation: deslizar 20s infinite;
 }
 
 .slides img {
-  width: 100%;
-  height: 45px;
+  width: 20%;
+  height: 10%;
   object-fit: cover;
+  gap: 30px;
 }
 
 @keyframes deslizar {

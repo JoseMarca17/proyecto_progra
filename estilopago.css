@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f1f1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.FormCajaLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.FormLogin form {
+  width: 100%;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #da3030;
+}
+
+.TextoCajas {
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #fcfbfb;
+}
+
+.CajaTexto {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.BtnRegistrar {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.BtnRegistrar:hover {
+  background-color: #45a049;
+}
+
+.BtnLogin {
+  display: inline-block;
+  text-align: center;
+  background-color: #e8ebee;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.BtnLogin:hover {
+  background-color: #0b7dda;
+}

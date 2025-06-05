@@ -40,6 +40,11 @@ else
 	<div class="ContenedorTabla" >
 	<form method="POST">
 	<h1>Lista de Productos</h1>
+	<style>
+		h1{
+			color:white;
+		}
+	</style>
 	
 	<div style="text-align:left">
 	<a href="usuarios_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>

@@ -38,6 +38,11 @@ $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['total'];
 <div class="ContenedorTabla">
 <form method="POST" action="">
     <h1>Lista de Compras</h1>
+    <style>
+        h1{
+            color:white;
+        }
+    </style>
 
     <div style="text-align:left">
         <a href="compra_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>
