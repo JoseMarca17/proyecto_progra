@@ -25,7 +25,7 @@ if (isset($_POST["btnregistrar"])) {
     <meta charset="utf-8" />
     <title>Registrar Pago</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles_tablas.css">
+    <link rel="stylesheet" href="estilopago.css">
 </head>
 <body>
 <div class="FormCajaLogin">
@@ -35,15 +35,12 @@ if (isset($_POST["btnregistrar"])) {
                 <h2>💰 Registrar Pago</h2> 
                 <div class="TextoCajas">• Monto pagado</div>
                 <input type="number" step="0.01" name="monto_pagado" class="CajaTexto" required>
-
-            <div class="TextoCajas">• Fecha de pago</div>
-            <input type="date" name="fecha_pago" class="CajaTexto" required>
-
-            <div class="TextoCajas">• Ubicación de entrega</div>
-            <input type="text" name="ubicacion_entrega" class="CajaTexto" required>
-
-            <div class="TextoCajas">• Método de pago</div>
-            <select name="metodo_pago" class="CajaTexto" required>
+                <div class="TextoCajas">• Fecha de pago</div>
+                <input type="date" name="fecha_pago" class="CajaTexto" required>
+                <div class="TextoCajas">• Ubicación de entrega</div>
+                <input type="text" name="ubicacion_entrega" class="CajaTexto" required>         
+                <div class="TextoCajas">• Método de pago</div>         
+                <select name="metodo_pago" class="CajaTexto" required>
                 <option value="">Seleccione método </option>
                 <option value="Efectivo">Efectivo</option>
                 <option value="QR">QR</option>

@@ -15,7 +15,14 @@ if(isset($_SESSION['usuarioingresando']))
   </head>
 <body>
 <div class="FormCajaLogin">
-  <img src="images/logo.png" alt="logo" width="200" height="100">
+  <img src="images/logo.svg" alt="logo" width="200" height="100">
+  <style>
+    img{
+      display: block;
+      margin: 100px;
+      padding: 50px;
+    }
+  </style>
   <div class="FormLogin">
     <form method="POST">
       <h1>Iniciar sesión</h1>
