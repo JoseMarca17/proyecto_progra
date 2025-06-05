@@ -15,6 +15,7 @@ if(isset($_SESSION['usuarioingresando']))
   </head>
 <body>
 <div class="FormCajaLogin">
+<<<<<<< HEAD
   <img src="images/logo.svg" alt="logo" width="200" height="100">
   <style>
     img{
@@ -26,23 +27,33 @@ if(isset($_SESSION['usuarioingresando']))
   <div class="FormLogin">
     <form method="POST">
       <h1>Iniciar sesión</h1>
+=======
+>>>>>>> 1e53ca60fd1501f06a4a22709da53ff85385e51b
 
-      <div class="TextoCajas">• Ingresar correo</div>
-      <input type="text" name="txtcorreo" class="CajaTexto" required>
+ <!-- Imagen Izquierda -->
+<div class="ContenedorImagenIzquierda"></div>
 
-      <div class="TextoCajas">• Ingresar password</div>
-      <input type="password" id="txtpassword" name="txtpassword" class="CajaTexto" required>
+<!-- Formulario -->
+<div class="FormLogin">
+  <form method="POST">
+    <h1>Iniciar sesión</h1>
 
-      <div class="CheckBox1">
-        <input type="checkbox" onClick="verpassword()"> Mostrar password
-      </div>
+    <div class="TextoCajas">• Ingresar correo</div>
+    <input type="text" name="txtcorreo" class="CajaTexto" required>
 
-      <input type="submit" value="Iniciar sesión" class="BtnLogin" name="btningresar">
-      <hr>
-      <a href="registrar_usuario.php" class="BtnRegistrar">Crea nueva cuenta</a>
-    </form>
-  </div>
+    <div class="TextoCajas">• Ingresar password</div>
+    <input type="password" id="txtpassword" name="txtpassword" class="CajaTexto" required>
+
+    <div class="CheckBox1">
+      <input type="checkbox" onClick="verpassword()"> Mostrar password
+    </div>
+
+    <input type="submit" value="Iniciar sesión" class="BtnLogin" name="btningresar">
+    <hr>
+    <a href="registrar_usuario.php" class="BtnRegistrar">Crea nueva cuenta</a>
+  </form>
 </div>
+
 </body>
 
 <script>
