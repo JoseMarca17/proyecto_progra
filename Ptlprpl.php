@@ -136,8 +136,5 @@
     <p>&copy; 2025 SNA - Todos los derechos reservados</p>
   </div>
 </footer>
-
-
-    
 </body>
 </html>
