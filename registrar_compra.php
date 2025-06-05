@@ -1,43 +1,57 @@
 <?php
 session_start();
 include("conexion.php");
-?>
-<?php include 'header.html'; ?> 
+include("header.php");
+?>\ 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Registrar Compra</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<main>
+    <div class="FormCajaLogin">
+        <div class="FormLogin">
+            <form method="post">
+                <h2>🛍️ Comprar Producto</h2>
 
-<div class="FormCajaLogin">
-    <div class="FormLogin">
-        <form method="post">
-            <h2>🛍️ Comprar Producto</h2>
+                <div class="TextoCajas">• Producto</div>
+                <input type="text" name="producto" class="CajaTexto" required>
+                <!-- Agregar conexión con la página principal para heredar el nombre del producto -->
 
-            <div class="TextoCajas">• Producto</div>
-            <input type="text" name="producto" class="CajaTexto" required>
-<!-- agregar conexion con la pag principal para heredar el nombre del producto -->
-            <div class="TextoCajas">• Precio Unitario</div>
-            <input type="number" step="0.01" name="precio" class="CajaTexto" required>
-<!-- agregar conexion con la pag principal para heredar el nombre del producto -->
-            <div class="TextoCajas">• Cantidad</div>
-            <input type="number" name="cantidad" class="CajaTexto" required>
+                <div class="TextoCajas">• Precio Unitario</div>
+                <input type="number" step="0.01" name="precio" class="CajaTexto" required>
+                <!-- Agregar conexión con la página principal para heredar el precio del producto -->
 
-            <div class="TextoCajas">• Talla</div>
-            <input type="text" name="talla" class="CajaTexto" required>
+                <div class="TextoCajas">• Cantidad</div>
+                <input type="number" name="cantidad" class="CajaTexto" required>
+
+                <div class="TextoCajas">• Talla</div>
+                <input type="text" name="talla" class="CajaTexto" required>
+
+                <br>
+                <input type="submit" name="btncomprar" value="Comprar" class="BtnRegistrar">
+            </form>
 
             <br>
-            <input type="submit" name="btncomprar" value="Comprar" class="BtnRegistrar">
-        </form>
-        <br>
-        <a href="inicio.php" class="BtnLogin">Volver</a>
+            <a href="inicio.php" class="BtnLogin">Volver</a>
+        </div>
     </div>
-</div>
+</main>
 
+<style>
+    main{
+            padding: 100px;
+            width: 50%; 
+            margin: 0 auto;
+            height: 100vh;
+            color:white;
+    }
+
+</style>
 </body>
 </html>
 

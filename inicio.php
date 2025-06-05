@@ -1,6 +1,5 @@
 
-<!DOCTYPE html>
-<html>
+
 <head>
     <meta charset="utf-8" />
     <title>Inicio | Sistema de Gestión</title>
@@ -27,5 +26,15 @@
             </div>
         </div>
     </main>
+    <style>
+        main {
+            padding: 100px;
+            width: 50%; /* o cualquier valor fijo */
+            margin: 0 auto;
+            height: 100vh;
+        }
+        p{
+            color: white;
+        }
+    </style>
 </body>
-</html>

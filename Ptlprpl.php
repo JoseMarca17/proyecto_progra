@@ -28,9 +28,6 @@
     <title>S N A</title>
 </head>
 <body>
-   <?php
-   include "header.php";
-   ?>
     <section class="hero">
   <div class="carrusel">
     <div class="slides">
@@ -65,55 +62,46 @@
   <div class="productos-grid">
     <!-- Repite por producto -->
     <div class="producto">
-      <img src="" alt="">
       <h3>Zapatillas Urbanas</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Camiseta</h3>
       <p>Bs. 230</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Falda</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Chaqueta</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Jersey</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Gorro</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Bikini</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Pantalon</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>
     </div>
     <div class="producto">
-      <img src="" alt="">
       <h3>Vestido</h3>
       <p>Bs. 220</p>
       <button>Agregar al carrito</button>

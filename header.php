@@ -1,8 +1,10 @@
 
-<link rel="stylesheet" href="styles/estiloPgPrnl.css">
+<link rel="stylesheet" href="estiloPgPrnl.css">
     <nav>
         <fieldset>
-            <img src="images/logo.svg" alt="" width="65" height="30">
+            <a href="Ptlprpl.php">
+                <img src="images/logo.svg" alt="Logo" width="65" height="30">
+            </a>
             <a href="#">NOVEDADES</a>
             <a href="#">ACCESORIOS</a>
             <a href="#">NOSOTROS</a>
@@ -12,7 +14,7 @@
                     <button type="submit">🔍</button>
                 </form>
             </div>
-            <a href="#">ADM</a>
+            <a href="inicio.php">ADM</a>
             <div class="usuario-menu">
                 <?php if (isset($_SESSION['usuario'])): ?>
                     <div class="dropdown">
