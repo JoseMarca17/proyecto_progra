@@ -31,12 +31,33 @@
     <section class="hero">
   <div class="carrusel">
     <div class="slides">
+<<<<<<< HEAD
+      <img src="images/logocae2.png" alt="foto">
+      <img src="images/logocar1.png" alt="foto 2">
+      <img src="images/logocar3.png" alt="foto 3">
+      <img src="images/logocae2.png" alt="foto">  
+      <img src="images/logocar1.png" alt="foto 2">
+      <img src="images/logocar3.png" alt="foto 3">
+      <img src="images/logocae2.png" alt="foto">
+      <img src="images/logocar1.png" alt="foto 2">
+      <img src="images/logocar3.png" alt="foto 3">
+      <img src="images/logocae2.png" alt="foto">
+      <img src="images/logocar1.png" alt="foto 2">
+      <img src="images/logocar3.png" alt="foto 3">
+      <img src="images/logocae2.png" alt="foto">
+      <img src="images/logocar1.png" alt="foto 2">
+      <img src="images/logocar3.png" alt="foto 3">
+      <img src="images/logocae2.png" alt="foto">
+      <img src="images/logocar1.png" alt="foto 2">
+      <img src="images/logocar3.png" alt="foto 3">
+=======
       <img src="images/logocar1.png" alt="foto1">
       <img src="images/logocae2.png" alt="foto2">
       <img src="images/logocar3.png" alt="foto3">
       <img src="img/foto1.jpg" alt="foto">
       <img src="img/foto2.jpg" alt="foto 2">
       <img src="img/foto3.jpg" alt="foto 3">
+>>>>>>> 9caddfaa6ecbd25e278282dd79c481dd2d6741a0
     </div>
   </div>
   
