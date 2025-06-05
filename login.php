@@ -16,24 +16,18 @@ if(isset($_SESSION['usuarioingresando']))
 <body>
 <div class="FormCajaLogin">
 
- <!-- Imagen Izquierda -->
 <div class="ContenedorImagenIzquierda"></div>
 
-<!-- Formulario -->
 <div class="FormLogin">
   <form method="POST">
     <h1>Iniciar sesión</h1>
-
     <div class="TextoCajas">• Ingresar correo</div>
     <input type="text" name="txtcorreo" class="CajaTexto" required>
-
     <div class="TextoCajas">• Ingresar password</div>
     <input type="password" id="txtpassword" name="txtpassword" class="CajaTexto" required>
-
     <div class="CheckBox1">
       <input type="checkbox" onClick="verpassword()"> Mostrar password
     </div>
-
     <input type="submit" value="Iniciar sesión" class="BtnLogin" name="btningresar">
     <hr>
     <a href="registrar_usuario.php" class="BtnRegistrar">Crea nueva cuenta</a>
@@ -63,7 +57,7 @@ function verpassword()
     $nr = mysqli_num_rows($buscandousu);
     if($nr == 1){
       $_SESSION['usuarioingresando']=$correo;
-      header("Location: Ptlprpl.html");
+      header("Location: Ptlprpl.php");
     }else if ($nr == 0) {
       echo "<script> alert('Usuario no existe');window.location= 'login.php' </script>";
     }
