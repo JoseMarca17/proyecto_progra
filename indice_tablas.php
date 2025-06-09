@@ -20,10 +20,10 @@
             gap: 20px;
             align-items: center;
         ">
-            <a href="usuario_tabla.php" class="BtnLogin">👤 Tabla Usuario</a>
-            <a href="producto_tabla.php" class="BtnLogin">📦 Tabla Producto</a>
-            <a href="compra_tabla.php" class="BtnLogin">🛒 Tabla Compra</a>
-            <a href="pago_tabla.php" class="BtnLogin">📋 Tabla Pagos</a>
+            <a href="tablas/usuario_tabla.php" class="BtnLogin">👤 Tabla Usuario</a>
+            <a href="tablas/producto_tabla.php" class="BtnLogin">📦 Tabla Producto</a>
+            <a href="tablas/compra_tabla.php" class="BtnLogin">🛒 Tabla Compra</a>
+            <a href="tablas/pago_tabla.php" class="BtnLogin">📋 Tabla Pagos</a>
             <a href="inicio.php" class="BtnLogin">🔙 Volver</a>
         </div>
     </div>

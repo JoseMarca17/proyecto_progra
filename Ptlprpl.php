@@ -14,24 +14,24 @@ include("header.php")
     <section class="hero">
   <div class="carrusel">
     <div class="slides">
-      <img src="images/logocae2.png" alt="foto">
-      <img src="images/logocar1.png" alt="foto 2">
-      <img src="images/logocar3.png" alt="foto 3">
-      <img src="images/logocae2.png" alt="foto">  
-      <img src="images/logocar1.png" alt="foto 2">
-      <img src="images/logocar3.png" alt="foto 3">
-      <img src="images/logocae2.png" alt="foto">
-      <img src="images/logocar1.png" alt="foto 2">
-      <img src="images/logocar3.png" alt="foto 3">
-      <img src="images/logocae2.png" alt="foto">
-      <img src="images/logocar1.png" alt="foto 2">
-      <img src="images/logocar3.png" alt="foto 3">
-      <img src="images/logocae2.png" alt="foto">
-      <img src="images/logocar1.png" alt="foto 2">
-      <img src="images/logocar3.png" alt="foto 3">
-      <img src="images/logocae2.png" alt="foto">
-      <img src="images/logocar1.png" alt="foto 2">
-      <img src="images/logocar3.png" alt="foto 3">
+      <img src="styles/images/logocae2.png" alt="foto">
+      <img src="styles/images/logocar1.png" alt="foto 2">
+      <img src="styles/images/logocar3.png" alt="foto 3">
+      <img src="styles/images/logocae2.png" alt="foto">  
+      <img src="styles/images/logocar1.png" alt="foto 2">
+      <img src="styles/images/logocar3.png" alt="foto 3">
+      <img src="styles/images/logocae2.png" alt="foto">
+      <img src="styles/images/logocar1.png" alt="foto 2">
+      <img src="styles/images/logocar3.png" alt="foto 3">
+      <img src="styles/images/logocae2.png" alt="foto">
+      <img src="styles/images/logocar1.png" alt="foto 2">
+      <img src="styles/images/logocar3.png" alt="foto 3">
+      <img src="styles/images/logocae2.png" alt="foto">
+      <img src="styles/images/logocar1.png" alt="foto 2">
+      <img src="styles/images/logocar3.png" alt="foto 3">
+      <img src="styles/images/logocae2.png" alt="foto">
+      <img src="styles/images/logocar1.png" alt="foto 2">
+      <img src="styles/images/logocar3.png" alt="foto 3">
     </div>
   </div>
   
