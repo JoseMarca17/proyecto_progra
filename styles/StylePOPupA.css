@@ -1,0 +1,47 @@
+/* Estilo para fondo semi-transparente */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 70, 0.85);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Contenedor del popup */
+.modal-content {
+    background: rgb(20, 25, 65);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 50, 0.5);
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    color: rgb(200, 210, 255);
+    box-sizing: border-box;
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+/* Animación */
+@keyframes popupFadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Botón de cerrar */
+.close-btn {
+    background: rgb(255, 80, 80);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    float: right;
+}
+
+.close-btn:hover {
+    background: rgb(255, 100, 100);
+}
