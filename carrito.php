@@ -1,4 +1,4 @@
-<?php 
+<?php  
 session_start();
 include('conexion.php');
 include("header.php");
@@ -7,10 +7,50 @@ include("header.php");
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Carrito de Compras</title>
-<link rel="stylesheet" href="styles/styles_tablas.css">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles/styles_tablas.css">
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            max-height: 90%;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            float: right;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .close-btn:hover {
+            background: #ff6b6b;
+        }
+    </style>
 </head>
 <body>
+
 <div class="ContenedorPrincipal">
 
 <?php
@@ -47,6 +87,7 @@ $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['total'];
         <th>Cantidad</th>
         <th>Talla</th>
         <th>Total</th>
+        <th>Acciones</th>
     </tr>
 
     <?php while ($mostrar = mysqli_fetch_assoc($sqlprod)) { ?>
@@ -58,16 +99,14 @@ $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['total'];
             <td><?= $mostrar['talla'] ?></td>
             <td>$<?= number_format($mostrar['total'], 2) ?></td>
             <td style="width:24%">
-            <a class="BotonesUsuarios" href="carrito_ver.php?id=<?php echo $mostrar['id']; ?>&pag=<?php echo $pagina; ?>">Ver</a> 
-            <a class="BotonesUsuarios" href="carrito_modificar.php?id=<?php echo $mostrar['id']; ?>&pag=<?php echo $pagina; ?>">Modificar</a> 
-            <a class="BotonesUsuarios" href="compra_eliminar.php?id=<?php echo $mostrar['id']; ?>&pag=<?php echo $pagina; ?>" onClick="return confirm('¿Estás seguro de eliminar la compra <?php echo htmlspecialchars($mostrar['producto']); ?>?')">Eliminar</a>
-        </td>
+                <button class="BotonesUsuarios" onclick="mostrarModal('carrito_ver.php', <?= $mostrar['id'] ?>, <?= $pagina ?>)">Ver</button> 
+                <button class="BotonesUsuarios" onclick="mostrarModal('carrito_modificar.php', <?= $mostrar['id'] ?>, <?= $pagina ?>)">Modificar</button> 
+                <a class="BotonesUsuarios" href="compra_eliminar.php?id=<?= $mostrar['id'] ?>&pag=<?= $pagina ?>" onClick="return confirm('¿Estás seguro de eliminar la compra <?= htmlspecialchars($mostrar['producto']) ?>?')">Eliminar</a>
+            </td>
         </tr>
     <?php } ?>
+    </table>
 
-</table>
-
-    <!-- Botón Agregar al carrito -->
     <div style="text-align:right; margin-top: 10px;">
         <form method="POST" action="registrar_compra.php">
             <input type="submit" value="Agregar al carrito" class="BotonesUsuarios">
@@ -94,5 +133,37 @@ $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['total'];
 </div>
 
 </div>
+
+<div id="miModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="cerrarModal()">Cerrar</button>
+        <div id="contenidoModal">
+        </div>
+    </div>
+</div>
+
+<script>
+function mostrarModal(archivo, id, pag) {
+    const modal = document.getElementById('miModal');
+    const contenido = document.getElementById('contenidoModal');
+    
+    modal.style.display = 'flex';
+    contenido.innerHTML = '<p style="color:white">Cargando...</p>';
+
+    fetch(`${archivo}?id=${id}&pag=${pag}`)
+        .then(res => res.text())
+        .then(html => {
+            contenido.innerHTML = html;
+        })
+        .catch(() => {
+            contenido.innerHTML = '<p style="color:red">Error al cargar contenido</p>';
+        });
+}
+
+function cerrarModal() {
+    document.getElementById('miModal').style.display = 'none';
+}
+</script>
+
 </body>
 </html>
