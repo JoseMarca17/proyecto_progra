@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <img src="/SISTEMA_PROYECTO/styles/images/logo.svg" alt="Logo" width="65" height="30">
         </a>
         <a href="productos.php">CATÁLOGO</a>
-        <a href="#">ACCESORIOS</a>
+        <a href="productos.php">ACCESORIOS</a>
         <a href="#">NOSOTROS</a>
 
         <div class="busqueda">

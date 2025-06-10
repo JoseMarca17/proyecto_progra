@@ -31,7 +31,7 @@
   <div class="hero-texto">
     <h1>¡Bienvenido a SNV!</h1>
     <p>Encuentra las mejores ofertas en ropa urbana y accesorios</p>
-    <a href="/productos" class="btn">Comprar ahora</a>
+    <a href="productos.php" class="btn">Comprar ahora</a>
   </div>
 </section>
 

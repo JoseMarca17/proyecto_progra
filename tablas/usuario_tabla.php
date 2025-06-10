@@ -36,6 +36,7 @@ include('../conexion.php');
                     <th>Correo</th>
                     <th>Teléfono</th>
                     <th>Ubicación</th>
+                    <th>Carnet</th>
                     <th>Password</th>
                 </tr>
 
@@ -47,6 +48,7 @@ include('../conexion.php');
                     echo "<td>{$mostrar['correo']}</td>";
                     echo "<td>{$mostrar['telefono']}</td>";
                     echo "<td>{$mostrar['ubicacion']}</td>";
+                    echo "<td>{$mostrar['ci']}</td>";
                     echo "<td>*****</td>";
                     echo "</tr>";
                     echo  "<td style='width:24%'>

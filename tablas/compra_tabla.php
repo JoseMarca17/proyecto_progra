@@ -73,7 +73,7 @@ $result = mysqli_query($conn, $sql);
                     <td style="width:24%">
                         <a class="BotonesUsuarios" href="../ver/compra_ver.php?id=<?php echo $row['id_compra']; ?>&pag=<?php echo $pagina; ?>">Ver</a> 
 <a class="BotonesUsuarios" href="../modificar/compra_modificar.php?id=<?php echo $row['id_compra']; ?>&pag=<?php echo $pagina; ?>">Modificar</a> 
-<a class="BotonesUsuarios" href="../eliminarcompra_eliminar.php?id=<?php echo $row['id_compra']; ?>&pag=<?php echo $pagina; ?>" onclick="return confirm('¿Estás seguro de eliminar la compra <?php echo htmlspecialchars($row['nombre_producto']); ?>?')">Eliminar</a>
+<a class="BotonesUsuarios" href="../eliminar/compra_eliminar.php?id=<?php echo $row['id_compra']; ?>&pag=<?php echo $pagina; ?>" onclick="return confirm('¿Estás seguro de eliminar la compra <?php echo htmlspecialchars($row['nombre_producto']); ?>?')">Eliminar</a>
 
                     </td>
                 </tr>
@@ -104,11 +104,8 @@ $result = mysqli_query($conn, $sql);
             echo "<a class='BotonesUsuarios' href='#' style='pointer-events: none'>Siguiente</a>";
         }
         ?>
+        <a href="../pdf/pdf_compras.php" class="BotonesUsuarios">Descargar PDF</a>
     </div>
-    <div style="margin-top: 10px;">
-    <a href="../pdf/pdf_compras.php" class="BotonesUsuarios">Descargar PDF</a>
-</div>
-
 
 </div>
 </body>

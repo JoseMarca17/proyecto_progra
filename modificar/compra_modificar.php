@@ -1,71 +1,77 @@
 <?php
-include('conexion.php');
+session_start();
+include('../conexion.php');
+include('../header.php');
 
-if (!isset($_GET['id'])) {
-    die("ID no especificado");
+if (!isset($_SESSION['id_usuario'])) die("Acceso denegado.");
+
+// Obtener ID de la compra desde el parámetro GET
+$idcompra = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$pagina = isset($_GET['pag']) ? intval($_GET['pag']) : 1;
+
+// Verificar que el ID no sea 0
+if ($idcompra <= 0) {
+    die("Compra no válida.");
 }
 
-$id = intval($_GET['id']);
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $producto = mysqli_real_escape_string($conn, $_POST['producto']);
-    $precio = floatval($_POST['precio']);
-    $cantidad = intval($_POST['cantidad']);
-    $talla = mysqli_real_escape_string($conn, $_POST['talla']);
+// Procesar el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $cliente = intval($_POST['id_cliente']);
+    $producto = $conn->real_escape_string($_POST['nombre_producto']);
+    $fecha = $conn->real_escape_string($_POST['fecha_compra']);
     $total = floatval($_POST['total']);
-    $fecha_compra = mysqli_real_escape_string($conn, $_POST['fecha_compra']);
-    $sql_update = "UPDATE compra_prueba SET 
-        producto = '$producto',
-        precio = $precio,
-        cantidad = $cantidad,
-        talla = '$talla',
-        total = $total,
-        fecha_compra = '$fecha_compra'
-        WHERE id = $id";
 
-    if (mysqli_query($conn, $sql_update)) {
-        header("Location: compra_tabla.php" . (isset($_GET['pag']) ? '?pag=' . intval($_GET['pag']) : ''));
+    $sql = "UPDATE compra SET 
+                nombre_producto = '$producto',
+                fecha_compra = '$fecha',
+                id_cliente = $cliente,
+                total = $total
+            WHERE id_compra = $idcompra";
+
+    if ($conn->query($sql)) {
+        echo "<script>alert('Compra modificada correctamente'); window.location.href='../tablas/compra_tabla.php?pag=$pagina';</script>";
         exit;
     } else {
-        echo "Error al actualizar: " . mysqli_error($conn);
+        echo "<script>alert('Error al modificar: " . $conn->error . "');</script>";
     }
-} else {
-    $sql = "SELECT * FROM compra_prueba WHERE id = $id LIMIT 1";
-    $resultado = mysqli_query($conn, $sql);
+}
 
-    if (!$resultado || mysqli_num_rows($resultado) == 0) {
-        die("Compra no encontrada.");
-    }
+// Obtener datos de la compra actual
+$query = $conn->query("SELECT * FROM compra WHERE id_compra = $idcompra");
+$compra = $query->fetch_assoc();
 
-    $compra = mysqli_fetch_assoc($resultado);
+if (!$compra) {
+    die("Compra no encontrada con ID: $idcompra");
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Modificar Compra</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="utf-8">
+    <title>Modificar compra</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Modificar Compra</h1>
-    <form method="POST" action="">
-        <label>Producto:</label><br>
-        <input type="text" name="producto" value="<?php echo htmlspecialchars($compra['producto']); ?>" required><br><br>
-        <label>Precio:</label><br>
-        <input type="number" step="0.01" name="precio" value="<?php echo htmlspecialchars($compra['precio']); ?>" required><br><br>
-        <label>Cantidad:</label><br>
-        <input type="number" name="cantidad" value="<?php echo htmlspecialchars($compra['cantidad']); ?>" required><br><br>
-        <label>Talla:</label><br>
-        <input type="text" name="talla" value="<?php echo htmlspecialchars($compra['talla']); ?>" required><br><br>
-        <label>Total:</label><br>
-        <input type="number" step="0.01" name="total" value="<?php echo htmlspecialchars($compra['total']); ?>" required><br><br>
-        <label>Fecha de Compra:</label><br>
-        <input type="datetime-local" name="fecha_compra" value="<?php 
-            echo date('Y-m-d\TH:i', strtotime($compra['fecha_compra']));
-        ?>" required><br><br>
-        <button type="submit">Guardar Cambios</button>
+<div class="pagina-login">
+    <form method="post" class="FormCajaLogin">
+        <h1>Modificar compra #<?= $idcompra ?></h1>
+
+        <label class="TextoCajas">Nombre del Producto:</label>
+        <input class="CajaTexto" type="text" name="nombre_producto" value="<?= htmlspecialchars($compra['nombre_producto']) ?>" required>
+
+        <label class="TextoCajas">ID del Cliente:</label>
+        <input class="CajaTexto" type="number" name="id_cliente" value="<?= intval($compra['id_cliente']) ?>" required>
+
+        <label class="TextoCajas">Total:</label>
+        <input class="CajaTexto" type="number" step="0.01" name="total" value="<?= $compra['total'] ?>" required>
+
+        <label class="TextoCajas">Fecha:</label>
+        <input class="CajaTexto" type="date" name="fecha_compra" value="<?= $compra['fecha_compra'] ?>" required>
+
+        <button class="BtnRegistrar">Guardar Cambios</button>
+        <a class="BtnRegistrar" href="../tablas/compra_tabla.php?pag=<?= $pagina ?>">Cancelar</a>
     </form>
-    <br>
-    <a href="compra_tabla.php<?php echo isset($_GET['pag']) ? '?pag=' . intval($_GET['pag']) : ''; ?>">Regresar</a>
+</div>
 </body>
 </html>

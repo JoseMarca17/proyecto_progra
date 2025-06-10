@@ -1,49 +1,53 @@
 <?php
+session_start();
 include('../conexion.php');
+include('../header.php');
 
-if (!isset($_GET['id'])) {
-    die("ID no especificado");
+if (!isset($_SESSION['id_usuario'])) {
+    die("Acceso denegado.");
 }
 
-$id = intval($_GET['id']);
+// Obtener el ID desde GET, coincide con el enlace de la tabla
+$idcompra = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$pagina = isset($_GET['pag']) ? intval($_GET['pag']) : 1;
 
-$sql = "SELECT * FROM compra WHERE id_compra = $id LIMIT 1";
-$resultado = mysqli_query($conn, $sql);
+if ($idcompra <= 0) {
+    die("ID de compra inválido.");
+}
 
-if (!$resultado || mysqli_num_rows($resultado) == 0) {
+// Preparar y ejecutar la consulta segura
+$stmt = $conn->prepare("SELECT * FROM compra WHERE id_compra = ?");
+$stmt->bind_param("i", $idcompra);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
     die("Compra no encontrada.");
 }
 
-$compra = mysqli_fetch_assoc($resultado);
+$compra = $result->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ver Compra</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="utf-8">
+    <title>Ver compra</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Detalle de Compra</h1>
-    <form>
-        <label>Producto:</label><br>
-        <input type="text" value="<?php echo htmlspecialchars($compra['producto']); ?>" disabled><br><br>
+    <div class="pagina-login">
+        <form class="FormCajaLogin">
+            <h1>Detalle de la compra #<?= $idcompra ?></h1>
 
-        <label>Precio:</label><br>
-        <input type="number" step="0.01" value="<?php echo htmlspecialchars($compra['precio']); ?>" disabled><br><br>
+            <p class="TextoCajas"><strong>ID Compra:</strong> <?= htmlspecialchars($compra['id_compra']) ?></p>
+            <p class="TextoCajas"><strong>ID Cliente:</strong> <?= htmlspecialchars($compra['id_cliente']) ?></p>
+            <p class="TextoCajas"><strong>Fecha de compra:</strong> <?= htmlspecialchars($compra['fecha_compra']) ?></p>
+            <p class="TextoCajas"><strong>Total:</strong> $<?= number_format($compra['total'], 2) ?></p>
+            <p class="TextoCajas"><strong>Nombre Producto:</strong> <?= htmlspecialchars($compra['nombre_producto']) ?></p>
 
-        <label>Cantidad:</label><br>
-        <input type="number" value="<?php echo htmlspecialchars($compra['cantidad']); ?>" disabled><br><br>
-
-        <label>Talla:</label><br>
-        <input type="text" value="<?php echo htmlspecialchars($compra['talla']); ?>" disabled><br><br>
-
-        <label>Total:</label><br>
-        <input type="number" step="0.01" value="<?php echo htmlspecialchars($compra['total']); ?>" disabled><br><br>
-
-        <label>Fecha de Compra:</label><br>
-        <input type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($compra['fecha_compra'])); ?>" disabled><br><br>
-    </form>
-    <br>
-    <a href="compra_tabla.php<?php echo isset($_GET['pag']) ? '?pag=' . intval($_GET['pag']) : ''; ?>">Regresar</a>
+            <a class="BtnRegistrar" href="../tablas/compra_tabla.php?pag=<?= $pagina ?>">Regresar</a>
+        </form>
+    </div>
 </body>
 </html>

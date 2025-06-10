@@ -9,7 +9,7 @@ include('../header.php');
 <head>
     <title>Crear cuenta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/SISTEMA_PROYECTO/styles/styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -44,6 +44,9 @@ include('../header.php');
 
                     <div class="TextoCajas">• Ingresar correo</div>
                     <input type="email" name="txtcorreo" class="CajaTexto" required>
+
+                    <div class="TextoCajas">• Ingresar Carnet de Identidad</div>
+                    <input type="text" id="txtcarnet" name="txtcarnet" class="CajaTexto" required>
 
                     <div class="TextoCajas">• Ingresar password</div>
                     <input type="password" id="txtpassword" name="txtpassword" class="CajaTexto" required>
@@ -90,12 +93,13 @@ if (isset($_POST["btnregistrar"])) {
     $apellido = $_POST["txtapellido"];
     $telefono = $_POST["txttelefono"];
     $ubicacion = $_POST["txtubicacion"];
+    $ci = $_POST["txtcarnet"];
     $email = $_POST["txtcorreo"];
     $contra = $_POST["txtpassword"];
     $rol = 'cliente';
 
-    $sql = "INSERT INTO usuarios(nombre, apellido, correo, telefono, ubicacion, password, rol) 
-            VALUES ('$nomuser', '$apellido', '$email', '$telefono', '$ubicacion', '$contra', '$rol')";
+    $sql = "INSERT INTO usuarios(nombre, apellido, correo, telefono, ubicacion, ci, password, rol)
+            VALUES ('$nomuser', '$apellido', '$email', '$telefono', '$ubicacion', '$ci', '$contra', '$rol')";
 
     $insertarusu = mysqli_query($conn, $sql);
 

@@ -11,6 +11,7 @@ while ($mostrar = mysqli_fetch_array($querybuscar)) {
     $correo     = $mostrar['correo'];
     $telefono     = $mostrar['telefono'];
     $ubicacion     = $mostrar['ubicacion'];
+    $ci    = $mostrar['ci'];
 }
 ?>
 <html>
@@ -38,6 +39,10 @@ while ($mostrar = mysqli_fetch_array($querybuscar)) {
                 <tr>
                     <td><b>Ubicacion: </b></td>
                     <td><?php echo $ubicacion; ?></td>
+                </tr>
+                <tr>
+                    <td><b>Carnet de Identidad: </b></td>
+                    <td><?php echo $ci; ?></td>
                 </tr>
 
                 <td colspan="2">
