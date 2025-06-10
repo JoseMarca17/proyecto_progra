@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../conexion.php');
 
 if (isset($_GET['id_producto'])) {
     $id = intval($_GET['id_producto']);
@@ -14,10 +14,10 @@ if (isset($_GET['id_producto'])) {
     if (!isset($_GET['confirm'])) {
         echo "<script>
             if (confirm('¿Estás seguro de eliminar el producto \"".addslashes($producto['nombre'])."\"?')) {
-                window.location.href = 'producto_eliminar.php?id_producto=$id&pag=$pagina&confirm=1';
+                window.location.href = '../eliminar/productos_eliminar.php?id_producto=$id&pag=$pagina&confirm=1';
             } else {
-                window.location.href = 'producto_tabla.php?pag=$pagina';
-            }
+                window.location.href = '../tablas/producto_tabla.php?pag=$pagina';
+            }   
         </script>";
         exit();
     }
@@ -26,7 +26,7 @@ if (isset($_GET['id_producto'])) {
     $sql = "DELETE FROM producto WHERE id_producto = $id";
     
     if (mysqli_query($conn, $sql)) {
-        header("Location: producto_tabla.php?pag=$pagina&deleted=1");
+        header("Location: ../tablas/producto_tabla.php?pag=$pagina&deleted=1");
     } else {
         die("Error al eliminar: " . mysqli_error($conn));
     }

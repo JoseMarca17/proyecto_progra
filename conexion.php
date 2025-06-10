@@ -3,7 +3,7 @@
 $host 	= 'localhost';
 $nom 	= 'root';
 $pass 	= '';
-$db 	= 'proyecto';
+$db 	= 'tienda_virtual';
 
 $conn = mysqli_connect($host, $nom, $pass, $db);
 

@@ -1,40 +1,33 @@
-<?php session_start();
-include("header.php")
-?>
+<?php session_start(); ?>
+<?php include("header.php"); ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estiloPgPrnl.css">
-    <title>S N A</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S N A</title>
+  <link rel="stylesheet" href="estiloPgPrnl.css">
 </head>
 <body>
-    <section class="hero">
+
+<!-- Agregar enlace solo para administradores -->
+<?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+  <nav style="text-align:center; padding: 20px;">
+    <a href="/admin/listas.php" style="color: red; font-weight: bold;">🔒 Vista Administrador</a>
+  </nav>
+<?php endif; ?>
+
+<section class="hero">
   <div class="carrusel">
     <div class="slides">
       <img src="styles/images/logocae2.png" alt="foto">
       <img src="styles/images/logocar1.png" alt="foto 2">
       <img src="styles/images/logocar3.png" alt="foto 3">
-      <img src="styles/images/logocae2.png" alt="foto">  
-      <img src="styles/images/logocar1.png" alt="foto 2">
-      <img src="styles/images/logocar3.png" alt="foto 3">
-      <img src="styles/images/logocae2.png" alt="foto">
-      <img src="styles/images/logocar1.png" alt="foto 2">
-      <img src="styles/images/logocar3.png" alt="foto 3">
-      <img src="styles/images/logocae2.png" alt="foto">
-      <img src="styles/images/logocar1.png" alt="foto 2">
-      <img src="styles/images/logocar3.png" alt="foto 3">
-      <img src="styles/images/logocae2.png" alt="foto">
-      <img src="styles/images/logocar1.png" alt="foto 2">
-      <img src="styles/images/logocar3.png" alt="foto 3">
-      <img src="styles/images/logocae2.png" alt="foto">
-      <img src="styles/images/logocar1.png" alt="foto 2">
-      <img src="styles/images/logocar3.png" alt="foto 3">
+      <!-- Puedes dejar más imágenes aquí si deseas -->
     </div>
   </div>
-  
+
   <div class="hero-texto">
     <h1>¡Bienvenido a SNV!</h1>
     <p>Encuentra las mejores ofertas en ropa urbana y accesorios</p>
@@ -43,64 +36,21 @@ include("header.php")
 </section>
 
 <section class="categorias">
-    <h2>Categorías</h2>
-    <div class="grid-categorias">
+  <h2>Categorías</h2>
+  <div class="grid-categorias">
     <a href="/hombre">Hombre</a>
     <a href="/mujer">Mujer</a>
     <a href="/accesorios">Accesorios</a>
     <a href="/ofertas">Ofertas</a>
-    </div>
+  </div>
 </section>
 
 <section class="destacados">
   <h2>Nuevos ingresos</h2>
   <div class="productos-grid">
-    <!-- Repite por producto -->
-    <div class="producto">
-      <h3>Zapatillas Urbanas</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Camiseta</h3>
-      <p>Bs. 230</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Falda</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Chaqueta</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Jersey</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Gorro</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Bikini</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Pantalon</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <h3>Vestido</h3>
-      <p>Bs. 220</p>
-      <button>Agregar al carrito</button>
-    </div>
+    <div class="producto"><h3>Zapatillas Urbanas</h3><p>Bs. 220</p><button>Agregar al carrito</button></div>
+    <div class="producto"><h3>Camiseta</h3><p>Bs. 230</p><button>Agregar al carrito</button></div>
+    <!-- Agrega más productos si deseas -->
   </div>
 </section>
 
@@ -131,5 +81,6 @@ include("header.php")
     <p>&copy; 2025 SNA - Todos los derechos reservados</p>
   </div>
 </footer>
+
 </body>
 </html>

@@ -45,6 +45,70 @@ nav a {
   font-weight: 700;
   margin: 0 20px;
 }
+.usuario-menu {
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #e7901d;
+  color: #fff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 140px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  z-index: 1000;
+  margin-top: 5px;
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #e7901d;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Opcional: para que no salte el botón al hacer hover */
+.dropdown-toggle:focus {
+  outline: none;
+  background-color: #e7901d;
+  color: #fff;
+}
+
 
 nav a:hover {
   color: #111; 

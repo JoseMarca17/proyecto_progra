@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../conexion.php');
 
 if (!isset($_GET['id_producto'])) {
     die("ID de producto no especificado");
@@ -21,7 +21,7 @@ $producto = mysqli_fetch_assoc($resultado);
 <html>
 <head>
     <title>Detalle de Producto</title>
-    <link rel="stylesheet" href="styles/styles_tablas.css">
+    <link rel="stylesheet" href="../styles/styles_tablas.css">
 </head>
 <body>
 <div class="ContenedorPrincipal">

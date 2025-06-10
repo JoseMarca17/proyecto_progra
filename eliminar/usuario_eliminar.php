@@ -1,17 +1,27 @@
 <?php
-include("conexion.php");
-include("header.php");
-$correo = $_SESSION['correo'];
-$pagina = $_GET['pag'];
-$correo = $_GET['correo'];
+session_start();
+include("../conexion.php");
 
-if ($correo == $correo )
-{
-echo "<script> alert('No puedes eliminar a tu propio usuario.'); window.location='usuarios_tabla.php' </script>";
+$correo_sesion = $_SESSION['correo'] ?? '';
+$correo = $_GET['correo'] ?? '';
+$pagina = $_GET['pag'] ?? 1;
+
+// No permitir eliminarse a uno mismo
+if ($correo === $correo_sesion) {
+    echo "<script>
+        alert('No puedes eliminar tu propio usuario.');
+        window.location.href = '../tablas/usuarios_tabla.php?pag=$pagina';
+    </script>";
+    exit;
 }
-else
-{
-mysqli_query($conn, "DELETE FROM usuarios WHERE correo='$correo'");
-header("Location:usuarios_tabla.php?pag=$pagina");
-}
+
+// Eliminar usuario
+mysqli_query($conn, "DELETE FROM usuarios WHERE correo = '$correo'");
+
+// Mostrar mensaje y redirigir con JavaScript
+echo "<script>
+    alert('Usuario eliminado.');
+    window.location.href = '../tablas/usuario_tabla.php?pag=$pagina';
+</script>";
+exit;
 ?>

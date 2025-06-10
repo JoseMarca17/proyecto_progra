@@ -1,5 +1,6 @@
+
 <?php
-include('conexion.php');
+include('../conexion.php');
 
 // Obtener datos actuales
 if (isset($_GET['id_producto'])) {
@@ -28,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($conn, $sql)) {
         $pagina = isset($_GET['pag']) ? intval($_GET['pag']) : 1;
-        header("Location: producto_tabla.php?pag=$pagina&success=1");
+        header("Location: ../tablas/producto_tabla.php?pag=$pagina&success=1");
         exit();
     } else {
         die("Error al actualizar: " . mysqli_error($conn));
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Modificar Producto</title>
-    <link rel="stylesheet" href="styles/styles_tablas.css">
+    <link rel="stylesheet" href="../styles/styles_tablas.css">
 </head>
 <body>
 <div class="ContenedorPrincipal">
@@ -78,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 <div style="text-align: center; margin-top: 20px;">
                     <input class="BotonesUsuarios" type="submit" value="Guardar Cambios">
-                    <a class="BotonesUsuarios" href="producto_tabla.php<?php echo isset($_GET['pag']) ? '?pag=' . intval($_GET['pag']) : ''; ?>">Cancelar</a>
+                    <a class="BotonesUsuarios" href="../tablas/producto_tabla.php<?php echo isset($_GET['pag']) ? '?pag=' . intval($_GET['pag']) : ''; ?>">Cancelar</a>
                 </div>
             </div>
         </form>

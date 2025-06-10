@@ -1,6 +1,6 @@
 <?php 
-include("conexion.php");
-include("usuario_tabla.php");
+include("../conexion.php");
+include("../tablas/usuario_tabla.php");
 $pagina = $_GET['pag'];
 $correo = $_GET['correo'];
 

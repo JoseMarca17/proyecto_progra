@@ -50,9 +50,10 @@ include('../conexion.php');
                     echo "<td>*****</td>";
                     echo "</tr>";
                     echo  "<td style='width:24%'>
-                    <a class='BotonesUsuarios' href=\"usuario_ver.php?correo=$mostrar[correo]&pag=$pagina\">Ver</a> 
-			        <a class='BotonesUsuarios' href=\"usuario_modificar.php?correo=$mostrar[correo]&pag=$pagina\">Modificar</a> 
-	                <a class='BotonesUsuarios' href=\"usuario_eliminar.php?correo=$mostrar[correo]&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar a $mostrar[nombre]?')\">Eliminar</a>
+                    <a class='BotonesUsuarios' href=\"../ver/usuario_ver.php?correo=$mostrar[correo]&pag=$pagina\">Ver</a> 
+			        <a class='BotonesUsuarios' href=\"../modificar/usuario_modificar.php?correo=$mostrar[correo]&pag=$pagina\">Modificar</a> 
+	                <a class='BotonesUsuarios' href=\"../eliminar/usuario_eliminar.php?correo=$mostrar[correo]&pag=$pagina\" 
+                    onClick=\"return confirm('¿Estás seguro de eliminar a $mostrar[nombre]?')\">Eliminar</a>
 	                </td>";  
                 }
                 ?>
@@ -71,8 +72,9 @@ include('../conexion.php');
             <a class="BotonesUsuarios" href="#" style="pointer-events: none">Anterior</a>
             <a class="BotonesUsuarios" href="usuarios_tabla.php?pag=2">Siguiente</a>
         </div>
-    </div>
-    <a class="BotonesUsuarios" href="exportar_pdf.php">Exportar a PDF</a>
+        <a class="BotonesUsuarios" href="/SISTEMA_PROYECTO/pdf/exportar_pdf_usuario.php">Exportar a PDF</a>
 
+    </div>
+    
 </body>
 </html>

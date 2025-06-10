@@ -1,141 +1,111 @@
+
 <?php
+session_start();
 include('../conexion.php');
-    include('../header.php');
+include('../header.php');
+
+// Validar que esté iniciada la sesión
+if (!isset($_SESSION['id_usuario'])) {
+    echo "<script>alert('❌ Debes iniciar sesión para ver los productos'); window.location='../login.php';</script>";
+    exit();
+}
+
+$id_admin = $_SESSION['id_usuario'];
+
+$filasmax = 25;
+
+if (isset($_GET['pag'])) {
+    $pagina = (int)$_GET['pag'];
+    if ($pagina < 1) $pagina = 1;
+} else {
+    $pagina = 1;
+}
+
+$buscar = '';
+$where_sql = "WHERE id_admin = $id_admin"; 
+
+if (isset($_POST['btnbuscar'])) {
+    $buscar = trim(mysqli_real_escape_string($conn, $_POST['txtbuscar']));
+    if ($buscar !== '') {
+        $where_sql .= " AND nombre LIKE '%$buscar%'";
+    }
+}
+
+$sqlusu = mysqli_query($conn, "SELECT * FROM producto $where_sql ORDER BY nombre DESC LIMIT " . (($pagina - 1) * $filasmax) . ", $filasmax");
+
+$resultadoMaximo = mysqli_query($conn, "SELECT COUNT(*) as num_producto FROM producto $where_sql");
+$maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['num_producto'];
 ?>
 
 <html>
-<title> registros </title>
+<title>Registros de Productos</title>
 <link rel="stylesheet" href="../styles/styles_tablas.css">
- 
+
 <body>
-<div class="ContenedorPrincipal">	
-<?php
- 
-    $filasmax = 25;
- 
-    if (isset($_GET['pag'])) 
-	{
-        $pagina = $_GET['pag'];
-    } else 
-	{
-        $pagina = 1;
-    }
- 
-if(isset($_POST['btnbuscar']))
-{
-$buscar = $_POST['txtbuscar'];
+<div class="ContenedorPrincipal">
+    <div class="ContenedorTabla">
+        <form method="POST" style="margin-bottom: 15px;">
+            <h1>Lista de Productos</h1>
+            <div style="text-align:left;">
+                <a href="productos_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>
+                <input class="CajaTexto" type="text" name="txtbuscar" placeholder="Buscar producto" autocomplete="off" style="width: 20%;" value="<?= htmlspecialchars($buscar) ?>">
+                <input class="BotonesUsuarios" type="submit" value="Buscar" name="btnbuscar">
+            </div>
+        </form>
 
-$sqlusu = mysqli_query($conn, "SELECT * FROM usuarios where correo = '".$buscar."'");
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Categoría</th>
+                <th>Talla</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
 
-}
-else
-{
-    $sqlusu = mysqli_query($conn, "SELECT * FROM producto ORDER BY nombre DESC LIMIT " . (($pagina - 1) * $filasmax)  . "," . $filasmax);
-}
- 
-    $resultadoMaximo = mysqli_query($conn, "SELECT count(*) as num_producto FROM producto");
- 
-   $maxusutabla = mysqli_fetch_assoc($resultadoMaximo)['num_producto'];
-	
-    ?>
-	<div class="ContenedorTabla" >
-	<form method="POST">
-	<h1>Lista de Productos</h1>
-	<style>
-		h1{
-			color:white;
-		}
-	</style>
-	
-	<div style="text-align:left">
-	<a href="usuarios_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>
-	
-	<input class="BotonesUsuarios" type="submit" value="Buscar" name="btnbuscar">
-	<input class="CajaTexto" type="text" name="txtbuscar"  placeholder="Ingresar producto" autocomplete="off" style='width:20%'>
-	</div>
-			</form>
-    <table>
-			<tr>
-			<th>Nombre</th>
-			<th>Precio</th>
-            <th>Categoria</th>
-			<th>Talla</th>
-			<th>Descripcion</th>
-			</tr>
- 
-        <?php
- 
-      while ($mostrar = mysqli_fetch_assoc($sqlusu)) 
-		{
-			
-            echo "<tr>";
-            echo "<td>".$mostrar['nombre']."</td>";
-			echo "<td>".$mostrar['precio']."</td>";
-			echo "<td>".$mostrar['categoria']."</td>";
-			echo "<td>".$mostrar['talla']."</td>";
-			echo "<td>".$mostrar['descripcion']."</td>";
-            echo  "<td style='width:24%'>
-			 <a class='BotonesUsuarios' href=\"productos_ver.php?id_producto=$mostrar[id_producto]&pag=$pagina\">Ver</a> 
-			<a class='BotonesUsuarios' href=\"productos_modificar.php?id_producto=$mostrar[id_producto]&pag=$pagina\">Modificar</a> 
-	 <a class='BotonesUsuarios' href=\"productos_eliminar.php?id_producto=$mostrar[id_producto]&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar a $mostrar[nombre]?')\">Eliminar</a>
-	</td>";  
-			
-        }
- 
-        ?>
-    </table>
-	<div style='text-align:right'>
-	<br>
-	<?php echo "Total de usuarios: ".$maxusutabla;?>
-	</div>
-	</div>
-<div style='text-align:right'>
-<br>
-</div>
-<div style="text-align:center">
-<?php
-if (isset($_GET['pag'])) {
-if ($_GET['pag'] > 1) {
- ?>
-<a class="BotonesUsuarios" href="usuarios_tabla.php?pag=<?php echo $_GET['pag'] - 1; ?>">Anterior</a>
-<?php
-} 
-else 
-{
-?>
-<a class="BotonesUsuarios" href="#" style="pointer-events: none">Anterior</a>
-<?php
-}
-?>
- 
- <?php
-} 
-else 
-{
-?>
-<a class="BotonesUsuarios" href="#" style="pointer-events: none">Anterior</a>
-<?php
-}
- 
-if (isset($_GET['pag'])) {
-if ((($pagina) * $filasmax) < $maxusutabla) {
-?>
-<a class="BotonesUsuarios" href="usuarios_tabla.php?pag=<?php echo $_GET['pag'] + 1; ?>">Siguiente</a>
-<?php
-} else {
-?>
-<a class="BotonesUsuarios" href="#" style="pointer-events: none">Siguiente</a>
-<?php
-}
-?>
-<?php
-} else {
-?>
-<a class="BotonesUsuarios" href="usuarios_tabla.php?pag=2">Siguiente</a>
-<?php
- }
-?>
-</div>
+            <?php
+            if ($sqlusu && mysqli_num_rows($sqlusu) > 0) {
+                while ($mostrar = mysqli_fetch_assoc($sqlusu)) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($mostrar['nombre']) . "</td>";
+                    echo "<td>" . number_format($mostrar['precio'], 2) . "</td>";
+                    echo "<td>" . htmlspecialchars($mostrar['categoria']) . "</td>";
+                    echo "<td>" . htmlspecialchars($mostrar['talla']) . "</td>";
+                    echo "<td>" . htmlspecialchars($mostrar['descripcion']) . "</td>";
+                    echo "<td style='width:24%'>
+                        <a class='BotonesUsuarios' href=\"../ver/productos_ver.php?id_producto=" . $mostrar['id_producto'] . "&pag=$pagina\">Ver</a> 
+                        <a class='BotonesUsuarios' href=\"../modificar/productos_modificar.php?id_producto=" . $mostrar['id_producto'] . "&pag=$pagina\">Modificar</a> 
+                        <a class='BotonesUsuarios' href=\"../eliminar/productos_eliminar.php?id_producto=" . $mostrar['id_producto'] . "&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar a " . addslashes(htmlspecialchars($mostrar['nombre'])) . "?')\">Eliminar</a>
+                    </td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo '<tr><td colspan="6" style="text-align:center;">No se encontraron productos.</td></tr>';
+            }
+            ?>
+        </table>
+
+        <div style="text-align:right; margin-top: 10px;">
+            <br>
+            <?php echo "Total de productos: " . $maxusutabla; ?>
+        </div>
+
+        <div style="text-align:center; margin-top: 20px;">
+            <?php if ($pagina > 1): ?>
+                <a class="BotonesUsuarios" href="productos_tabla.php?pag=<?= $pagina - 1 ?>">Anterior</a>
+            <?php else: ?>
+                <a class="BotonesUsuarios" href="#" style="pointer-events: none; opacity: 0.5;">Anterior</a>
+            <?php endif; ?>
+
+            <?php if ($pagina * $filasmax < $maxusutabla): ?>
+                <a class="BotonesUsuarios" href="productos_tabla.php?pag=<?= $pagina + 1 ?>">Siguiente</a>
+            <?php else: ?>
+                <a class="BotonesUsuarios" href="#" style="pointer-events: none; opacity: 0.5;">Siguiente</a>
+            <?php endif; ?>
+        </div>
+        <a href="../pdf/pdf_productos.php" class="BotonesUsuarios" target="_blank">Exportar PDF</a>
+
+    </div>
 </div>
 </body>
 </html>
