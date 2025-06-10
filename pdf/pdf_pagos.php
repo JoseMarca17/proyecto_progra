@@ -5,12 +5,10 @@ require('../libs/fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage();
 
-// Título
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->Cell(0, 10, 'Lista de Pagos', 0, 1, 'C');
 $pdf->Ln(5);
 
-// Encabezado
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->SetFillColor(200, 220, 255);
 $pdf->Cell(25, 8, 'ID Pago', 1, 0, 'C', true);
@@ -19,7 +17,6 @@ $pdf->Cell(40, 8, 'Fecha', 1, 0, 'C', true);
 $pdf->Cell(50, 8, 'Ubicacion', 1, 0, 'C', true);
 $pdf->Cell(40, 8, 'Metodo Pago', 1, 1, 'C', true);
 
-// Datos
 $pdf->SetFont('Arial', '', 10);
 $query = mysqli_query($conn, "SELECT * FROM pago ORDER BY fecha_pago DESC");
 

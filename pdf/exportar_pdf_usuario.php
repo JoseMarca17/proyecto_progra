@@ -6,12 +6,10 @@
     $pdf = new FPDF();
     $pdf->AddPage();
 
-    // Título del documento
     $pdf->SetFont('Arial', 'B', 16);
     $pdf->Cell(0, 10, 'Tabla de Usuarios', 0, 1, 'C'); 
     $pdf->Ln(5); 
 
-    // Encabezado de tabla
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->SetFillColor(200, 220, 255); 
     $pdf->Cell(35, 8, 'Nombre', 1, 0, 'C', true);

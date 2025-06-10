@@ -44,7 +44,8 @@ $result = mysqli_query($conn, $sql);
             <div style="text-align:left">
                 <a href="pago_tabla.php" class="BotonesUsuarios">Inicio de la tabla</a>
                 <input class="BotonesUsuarios" type="submit" value="Buscar" name="btnbuscar">
-                <input class="CajaTexto" type="text" name="txtbuscar" placeholder="Ingresar método de pago" autocomplete="off" style="width:20%" value="<?php echo htmlspecialchars($buscar); ?>">
+                <input class="CajaTexto" type="text" name="txtbuscar" placeholder="Ingresar método de pago" 
+                autocomplete="off" style="width:20%" value="<?php echo htmlspecialchars($buscar); ?>">
             </div>
         </form>
 
@@ -68,7 +69,8 @@ $result = mysqli_query($conn, $sql);
                     <td style="width:24%">
                         <a class="BotonesUsuarios" href="../ver/pago_ver.php?id_pago=<?= $row['id_pago'] ?>&pag=<?= $pagina ?>">Ver</a> 
                         <a class="BotonesUsuarios" href="../modificar/pago_modificar.php?id_pago=<?= $row['id_pago'] ?>&pag=<?= $pagina ?>">Modificar</a> 
-                        <a class="BotonesUsuarios" href="../eliminar/pago_eliminar.php?id_pago=<?= $row['id_pago'] ?>&pag=<?= $pagina ?>" onclick="return confirm('¿Estás seguro de eliminar el pago con ID <?= $row['id_pago'] ?>?')">Eliminar</a>
+                        <a class="BotonesUsuarios" href="../eliminar/pago_eliminar.php?id_pago=<?= $row['id_pago'] ?>&pag=<?= $pagina ?>" 
+                        onclick="return confirm('¿Estás seguro de eliminar el pago con ID <?= $row['id_pago'] ?>?')">Eliminar</a>
                     </td>
                 </tr>
             <?php } ?>

@@ -47,7 +47,8 @@ while ($mostrar = mysqli_fetch_array($querybuscar)) {
 				</tr>
 				<td colspan="2">
 					<?php echo "<a class='BotonesUsuarios' href=\"usuarios_tabla.php?pag=$pagina\">Cancelar</a>"; ?>
-					<input class="BotonesUsuarios" type="submit" name="btnmodificar" value="Modificar" onClick="javascript: return confirm('¿Deseas modificar este usuario?');">
+					<input class="BotonesUsuarios" type="submit" name="btnmodificar" value="Modificar" 
+					onClick="javascript: return confirm('¿Deseas modificar este usuario?');">
 				</td>
 				</tr>
 			</table>
@@ -65,7 +66,8 @@ if (isset($_POST['btnmodificar'])) {
 	$pass1 		= $_POST['txtpass'];
 	$telefono1 	= $_POST['txttelefono'];
 	$ubicacion1 	= $_POST['txtubicacion'];
-	$querymodificar = mysqli_query($conn, "UPDATE usuarios SET nom='$nom1',correo='$correo1',password = '$pass1',telefono = '$telefono1',ubicacion = '$ubicacion1' WHERE correo = '$correo1'");
+	$querymodificar = mysqli_query($conn, "UPDATE usuarios SET nom='$nom1',correo='$correo1',
+	password = '$pass1',telefono = '$telefono1',ubicacion = '$ubicacion1' WHERE correo = '$correo1'");
 	echo "<script>window.location= 'usuarios_tabla.php?pag=$pagina' </script>";
 }
 ?>
